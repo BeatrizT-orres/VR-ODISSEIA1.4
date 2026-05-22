@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <title>INICIAR A EXPERIENCIA</title>
+</head>
+<body>
+    <a-scene>
+         <a-camera position="3.5 2 2">
+            <a-cursor fuse-timeout="3000" raycaster="objects: .clickable" color="red" fuse="false"></a-cursor>
+        </a-camera>
+
+        <a-assets>
+    <!-- Carrega o audio nos assets -->
+    <audio id="audio-menu" src="./musicas/audiomenu.mp3" preload="auto"></audio>
+  </a-assets>
+
+  <!-- Toca automático, em loop, no centro da cena -->
+  <a-entity
+    sound="src: #audio-menu; autoplay: true; loop: true; volume: 1"
+    position="0 0 0">
+  </a-entity>
+
+     <!-- assets -->
+    <a-assets>
+      <img id="inicio" src="imagens/espaco.png">
+      <img id="logo" src="imagens/logovr.png">
+    </a-assets>
+
+    <a-sky src="#inicio" rotation="0 -90 0"></a-sky>
+    <a-image src="#logo" position="3 3 -3" width="7" height="6"></a-image>
+
+    <!-- botões -->
+    <a-entity position="3 1.5 -3">
+      <a-box id="botao" class="clickable" position="0 0 0" width="4" height="0.6" depth="0.1"
+        color="#000000" opacity="0.7" link="href: menu.html"></a-box>
+      <a-text value="Iniciar" align="center" position="0 0 0.1" color="#FFFFFF"></a-text>
+
+    </a-entity>
+
+  </a-scene>
+</body>
+</html>
